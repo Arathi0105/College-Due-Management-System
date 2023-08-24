@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/tutor.css') }}"/>
+    <title>Tutor</title>
+  </head>
+  <body>
+    <header>
+      <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" />
+      <h1>COLLEGE OF ENGINEERING TRIKARIPUR</h1>
+      <div class="logout-container">
+        <form action="/logout" method="POST">
+          <button type="submit">
+            <img src="{{ url_for('static', filename='images/logout_icon.png')}}" alt="Logout" class="logout"/>
+          </button>
+        </form>
+        <div class="logout-text">Logout</div>
+      </div>
+    </header>
+    <div class="contents">
+      <h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="60"
+          height="60"
+          fill="currentColor"
+          class="bi bi-person-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+        </svg>
+        {{ details[0][1] }}
+      </h2>
+      <p>
+        <div class="username">
+            {{ details[0][0] }}<br />
+        </div>
+        {{ details[0][3] }}<br />
+        {{ details[0][2] }}
+      </p>
+      <div class="table-title">
+        <h3><u>Due Status:</u></h3>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+          <tr>
+            <th class="first-column">Register no.</th>
+            <th>Name</th>
+            <th>Canteen</th>
+            <th>Store</th> 
+            <th>Bus</th>
+            <th>Office</th>
+            <th class="last-column">Total</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for row in dues %}
+          <tr>
+            <td class="imp">{{ row[0] }}</td>
+            <td class="imp">{{ row[1] }}</td>
+            <td>{{ row[2] }}</td>
+            <td>{{ row[3] }}</td>
+            <td>{{ row[4] }}</td>
+            <td>{{ row[5] }}</td>
+            <td class="imp">{{ row[2]+row[3]+row[4]+row[5] }}</td>
+          </tr>
+        {% endfor %}
+        </tbody>
+        </table>
+      </div>
+        </div>
+  </body>
+</html>

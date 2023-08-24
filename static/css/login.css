@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  flex: 1;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  background-image: url("../images/clg_background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+header {
+  height: 25px;
+  width: 100%;
+  padding: 30px;
+  margin: 0%;
+  background-color: #cae9f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header h1 {
+  margin: 0;
+  padding: 0;
+  flex-grow: 1;
+  text-align: center;
+  font-weight: bold;
+  line-height: 25px;
+  color: #030804;
+}
+header img{
+  float: left;
+  width: 55px;
+  height: 55px;
+  margin: 0px;
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  line-height: 25px;
+  color: #030804;
+}
+label {
+  margin-left: 50px;
+  color: #030804;
+  font-weight: bold;
+}
+
+input {
+  width: 350px;
+  margin: 15px 0;
+  border-radius: 160px;
+  padding: 15px 18px;
+  box-sizing: border-box;
+  border: none;
+  margin-left: 30px;
+}
+
+button {
+  text-align: center;
+  background-color: #ccd8d5;
+  color: #030804;
+  padding: 14px 20px;
+  border-radius: 160px;
+  margin: 7px 0;
+  margin-left: 160px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  width: 250px;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: none;
+}
+
+button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+a{
+  pointer-events: none;
+}
+form {
+  width: 626px;
+  margin: auto;
+  margin-top: 100px;
+  display: grid;
+  color: #030804;
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #cae9f548;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+  justify-content: center;
+}
+
+.Error{
+  text-align: center;
+  font-weight: 600;
+}
+
+.Contents {
+  padding: 25px;
+}

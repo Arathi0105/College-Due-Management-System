@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/staff.css') }}" />
+    <title>Staff</title>
+    <script>
+      var error_message = "{{ error }}";
+
+      if (error ) {
+          alert(error);
+      }
+  </script>
+  </head>
+  <body>
+    <header>
+      <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" />
+      <h1>COLLEGE OF ENGINEERING TRIKARIPUR</h1>
+      <div class="logout-container">
+        <img src="{{ url_for('static', filename='images/logout_icon.png')}}" alt="Logout" class="logout" onclick="location.href='login.html';"/>
+        <div class="logout-text">Logout</div>
+      </div>
+    </header>
+    <div class="contents">
+      <h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="60"
+          height="60"
+          fill="currentColor"
+          class="bi bi-person-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+        </svg>
+        {{ details[0][1] }}
+      </h2>
+      <p>
+        <div class="username">
+          {{ details[0][0] }}<br />
+        </div>
+      </p>
+      <div class="table-title">
+        <h3>
+          <u>Due Details:</u>
+          <br/><br/>
+        </h3>
+      </div>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th class="first-column">Register no.</th>
+              <th>Name</th>
+              <th class="last-column">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for row in dues %}
+                <tr>
+                  <td class="imp">{{ row[0] }}</td>
+                  <td class="imp">{{ row[1] }}</td>
+                  <td>{{ row[2] }}</td>
+                </tr>
+            {% endfor %}    
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="Controls">
+    <form action="/staff" method="POST">
+          <label for="username">Username : 
+          <input type="text" placeholder="Enter Username" name="username" class="control-username"/></label>
+          <br /><br />
+          <label for="amount">Amount : 
+          <input type="text" placeholder="Enter Amount" name="amount" class="control-amt"/></label>
+          <h5>To decrease the due add a ' - ' in the amount section</h5>
+          <div class="buttons-row">
+            <button type = "submit" class="control-button">Update Due</button>
+          </div>
+          {{ error }}
+    </div>
+  </body>
+</html>

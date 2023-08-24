@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/student.css') }}">
+    <title>Student</title>
+  </head>
+  <body>
+    <header>
+      <img src="{{ url_for('static', filename='images/logo.png')}}" alt="Logo" />
+      <h1>COLLEGE OF ENGINEERING TRIKARIPUR</h1>
+      <div class="logout-container">
+        <form action="/logout" method="POST">
+          <button type="submit">
+            <img src="{{ url_for('static', filename='images/logout_icon.png')}}" alt="Logout" class="logout"/>
+          </button>
+        </form>
+        <div class="logout-text">Logout</div>
+      </div>
+    </header>
+    <div class="contents">
+      <h2>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="60"
+          height="60"
+          fill="currentColor"
+          class="bi bi-person-fill"
+          viewBox="0 0 16 16"
+        >
+          <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+        </svg>
+        {{ details[0][1] }}
+      </h2>
+      <p>
+        <div class="username">
+        {{ details[0][0] }}<br />
+        </div>
+        {{ details[0][3] }}<br />
+        {{ details[0][2] }}
+      </p>
+      <div class="table-header">
+        <h3><u>Due Status:</u></h3>
+      </div>
+      <table>
+        <tr>
+          <th>DUE AREA</th>
+          <th>AMOUNT</th>
+        </tr>
+        {% for row in dues %}
+        <tr>
+          <td class="area">CANTEEN</td>
+          <td>{{ row[1] }}</td>
+        </tr>
+        <tr>
+          <td class="area">STORE</td>
+          <td>{{ row[2] }}</td>
+        </tr>
+        <tr>
+          <td class="area">BUS</td>
+          <td>{{ row[3] }}</td>
+        </tr>
+        <tr>
+          <td class="area">OFFICE</td>
+          <td>{{ row[4] }}</td>
+        </tr>
+        <tr class="total">
+          <td>TOTAL</td>
+          <td>{{ row[1]+row[2]+row[3]+row[4] }}</td>
+        </tr>
+        
+        {% endfor %}
+      </table>
+    </div>
+  </body>
+</html>
